@@ -1,0 +1,77 @@
+.dm-dialog-wrap {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.dm-dialog {
+		width: 70%;
+		background: #fff;
+		overflow: hidden;
+		border-radius: 5px;
+		margin-top: -20%;
+		padding: 0.1rem;
+		&-head {
+			font-size: 0.14rem;
+			height: 0.3rem;
+			line-height: 0.3rem;
+			text-align: center;
+		}
+		&-alert,
+		&-confirm {
+			.dm-dialog-content {
+				text-align: center;
+			}
+		}
+		&-content {
+			padding: 0.1rem 0;
+			font-size: 0.14rem;
+			min-height: 1rem;
+		}
+		&-prompt {
+			&-wrap {
+				margin: 0.2rem 0;
+				height: 0.35rem;
+				position: relative;
+				.note-wrap,
+				.input-wrap {
+					display: inline-block;
+				}
+				.note-wrap {
+					width: 0.6rem;
+					height: 0.35rem;
+					line-height: 0.35rem;
+					font-size: 0.14rem;
+				}
+				.input-wrap {
+					position: absolute;
+					left: 0.6rem;
+					right: 0.1rem;
+					top: 0;
+					padding: 0 0.1rem;
+					height: 0.35rem;
+					border-radius: 5px;
+					overflow: hidden;
+					border: 1px solid #007bff;
+				}
+				input {
+					outline: none;
+					border: none;
+					height: 0.35rem;
+					font-size: 0.14rem;
+					width: 100%;
+				}
+			}
+			.dm-dialog-content {
+				min-height: 0.5rem;
+			}
+		}
+		&-foot {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.dm-btn:not(:first-child) {
+				margin-left: 0.1rem;
+			}
+		}
+	}
+}
