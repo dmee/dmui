@@ -1,7 +1,10 @@
 {
   "name": "dmui",
   "description": "dmui",
-  "main": "index.js",
+  "main": [
+    "dist/dm.min.js",
+    "dist/dm.min.css"
+  ],
   "authors": [
     "niki <niki@90zl.com>"
   ],
