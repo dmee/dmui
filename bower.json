@@ -1,0 +1,17 @@
+{
+  "name": "dmui",
+  "description": "dmui",
+  "main": "index.js",
+  "authors": [
+    "niki <niki@90zl.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dmee/dmui",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
