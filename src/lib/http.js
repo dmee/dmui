@@ -7,7 +7,7 @@
 			let opts = $.extend(true, {
 				url: url,
 				type: 'GET'
-			}, options);
+            }, options);
 			return this.request(opts);
 		},
 
@@ -60,12 +60,12 @@
 					error(json) {
 						reject(json);
 					}
-				};
-				if (opts.type === 'get') {
+                };
+				if ((opts.type || '').toLowerCase() === 'get') {
 					if (opts.params) {
-						opts.url = opts.url + '?' + me.convert_params_2_query(opts.params);
+						ajaxParams.url = opts.url + '?' + me.convert_params_2_query(opts.params);
 					}
-				}
+                }
 				$.ajax(ajaxParams);
 			});
 		},
@@ -73,7 +73,7 @@
 		// convert request params
 		convert_params_2_query(params = {}) {
 			let hasOwn = Object.prototype.hasOwnProperty,
-				queryArr = [];
+                queryArr = [];
 			for (var key in params) {
 				if (hasOwn.call(params, key)) {
 					let value = params[key];
@@ -81,7 +81,7 @@
 						queryArr.push(key + '=' + params[key]);
 					}
 				}
-			}
+            }
 			return queryArr.join('&');
 		}
 	};
