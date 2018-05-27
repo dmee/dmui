@@ -6,6 +6,7 @@ const $ = require("gulp-load-plugins")();
 gulp.task("framework-styles", () => {
     var stylesSource = [
         './third_plugins/weui/dist/style/weui.min.css',
+        './third_plugins/animate.css/animate.min.css',
         'src/styles/dm.less'
     ];
     gulp.src(stylesSource)

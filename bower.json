@@ -20,7 +20,8 @@
   "dependencies": {
     "weui": "^1.1.2",
     "jquery-weui": "^1.2.0",
-    "swiper": "^4.2.6"
+    "swiper": "^4.2.6",
+    "animate.css": "^3.5.2"
   },
   "devDependencies": {
     "jquery": "^3.3.1"
