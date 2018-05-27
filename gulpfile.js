@@ -18,6 +18,24 @@ gulp.task("framework-styles", () => {
         .pipe($.rename("dm.min.css"))
         .pipe(gulp.dest("dist"));
 });
+gulp.task("framework-scripts-dev", () => {
+    scriptsSource = [
+        './third_plugins/jquery/dist/jquery.js',
+        './src/plugins/swiper.jquery.js',
+        './src/plugins/jquery.extend.js',
+        './src/plugins/hammer.js',
+        'src/core.js',
+        'src/lib/**/*',
+        'src/scripts/**/*.js'
+    ];
+    gulp.src(scriptsSource)
+        .pipe($.plumber())
+        .pipe($.concat("dm.js", {
+            newLine: ';'
+        }))
+        .pipe($.rename("dm.min.js"))
+        .pipe(gulp.dest("dist"));
+});
 gulp.task("framework-scripts", () => {
     scriptsSource = [
         './third_plugins/jquery/dist/jquery.js',
@@ -41,6 +59,7 @@ gulp.task("framework-scripts", () => {
         .pipe($.rename("dm.min.js"))
         .pipe(gulp.dest("dist"));
 });
+
 gulp.task("framework", ["framework-scripts", "framework-styles"])
 
 // 监听任务
@@ -50,5 +69,5 @@ gulp.task("watch", done => {
 });
 gulp.task("common", ["framework"]);
 gulp.task("build", ["common"]);
-gulp.task("dev", ["common", "watch"]);
+gulp.task("dev", ["framework-scripts-dev", "framework-styles", "watch"]);
 gulp.task("default", ["dev"]);
