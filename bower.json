@@ -16,5 +16,13 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "weui": "^1.1.2",
+    "jquery-weui": "^1.2.0",
+    "swiper": "^4.2.6"
+  },
+  "devDependencies": {
+    "jquery": "^3.3.1"
+  }
 }

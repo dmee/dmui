@@ -4,7 +4,11 @@ const $ = require("gulp-load-plugins")();
 
 /************************** framework ******************************/
 gulp.task("framework-styles", () => {
-    gulp.src('src/plugins/**/*.less')
+    var stylesSource = [
+        './third_plugins/weui/dist/style/weui.min.css',
+        'src/styles/dm.less'
+    ];
+    gulp.src(stylesSource)
         .pipe($.plumber())
         .pipe($.concat("dm.css"))
         .pipe($.less())
@@ -13,12 +17,17 @@ gulp.task("framework-styles", () => {
         .pipe($.rename("dm.min.css"))
         .pipe(gulp.dest("dist"));
 });
-gulp.task("framework-script", () => {
-    gulp.src([
-            'src/core.js',
-            'src/lib/**/*',
-            'src/plugins/**/*.js'
-        ])
+gulp.task("framework-scripts", () => {
+    scriptsSource = [
+        './third_plugins/jquery/dist/jquery.js',
+        './src/plugins/swiper.jquery.js',
+        './src/plugins/jquery.extend.js',
+        './src/plugins/hammer.js',
+        'src/core.js',
+        'src/lib/**/*',
+        'src/scripts/**/*.js'
+    ];
+    gulp.src(scriptsSource)
         .pipe($.plumber())
         .pipe($.babel())
         .pipe($.uglify({
@@ -31,11 +40,12 @@ gulp.task("framework-script", () => {
         .pipe($.rename("dm.min.js"))
         .pipe(gulp.dest("dist"));
 });
-gulp.task("framework", ["framework-script", "framework-styles"])
+gulp.task("framework", ["framework-scripts", "framework-styles"])
 
 // 监听任务
 gulp.task("watch", done => {
-    gulp.watch(["src/**/*"], ["framework"]); // 框架监听
+    gulp.watch(["src/styles/**/*"], ["framework-styles"]); // 框架监听
+    gulp.watch(["src/scripts/**/*"], ["framework-scripts"]); // 框架监听
 });
 gulp.task("common", ["framework"]);
 gulp.task("build", ["common"]);

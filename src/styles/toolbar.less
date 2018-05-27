@@ -1,0 +1,36 @@
+.toolbar {
+    position: relative;
+    width: 100%;
+    .hairline(top, #d9d9d9);
+    font-size: .85rem / @baseRemPercent;
+    line-height: 1.5;
+    color: #3d4145;
+    background: #f7f7f8;
+    .toolbar-inner {
+        height: 2.2rem / @baseRemPercent;
+        .flexbox();
+        text-align: center;
+    }
+    .title {
+        position: absolute;
+        display: block;
+        width: 100%;
+        padding: 0;
+        font-size: .85rem / @baseRemPercent;
+        font-weight: normal;
+        line-height: 2.2rem / @baseRemPercent;
+        color: #3d4145;
+        text-align: center;
+        white-space: nowrap;
+    }
+    .picker-button {
+        position: absolute;
+        right: 0;
+        box-sizing: border-box;
+        height: 2.2rem / @baseRemPercent;
+        line-height: 2.2rem / @baseRemPercent;
+        color: @color-primary;
+        z-index: 1;
+        padding: 0 .5rem / @baseRemPercent;
+    }
+}
